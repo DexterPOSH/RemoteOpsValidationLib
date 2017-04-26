@@ -17,3 +17,13 @@ Describe "Operating system installed validation" -Tags OSConfigValidation {
 }
 
 
+# Validate that the domain account is part of the local administrators group on a node.
+Describe "Domain account is local administrator validation" {
+
+    $LocalGroupMember = Get-LocalGroupMember -Group Administrators -Member "DomainUser" -ErrorAction SilentlyContinue
+
+    It "Should be member of local admins group" {
+        $LocalGroupMember | Should NOT BeNullOrEmpty
+    }
+}
+
