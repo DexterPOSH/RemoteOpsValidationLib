@@ -4,6 +4,7 @@
         @{
             # common node information hashtable
             NodeName = '*'; # do not edit
+            DomainUser = 'S2DClusterAdmin'
         },
         @{ 
             # Individual node information hashtable
