@@ -22,7 +22,7 @@ PSRemotely -Path "$PSScriptRoot\EnvironmentConfigData.psd1" {
         # Validate that the domain account is part of the local administrators group on a node.
         Describe "Domain account is local administrator validation" {
 
-            $LocalGroupMember = Get-LocalGroupMember -Group Administrators -Member "DomainUser" -ErrorAction SilentlyContinue
+            $LocalGroupMember = Get-LocalGroupMember -Group Administrators -Member "$($Node.DomainUser)" -ErrorAction SilentlyContinue
 
             It "Should be member of local admins group" {
                 $LocalGroupMember | Should NOT BeNullOrEmpty
